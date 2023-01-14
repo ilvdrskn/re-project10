@@ -1,0 +1,146 @@
+:root {
+    --veryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --desaturatedDarkBlue: hsl(214, 17%, 51%);
+    --grayishBlue: hsl(212, 23%, 69%);
+    --lightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url("./fonts/Manrope-VariableFont_wght.ttf");
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+
+body {
+    font-family: Manrope;
+    font-size: 13px;
+    background-color: var(--grayishBlue);
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: grid;
+    flex-basis: 60%;
+    background-color: var(--lightGrayishBlue);
+    border-radius: 20px;
+}
+
+.hide{display:none;}
+
+input[type=button] {
+    display: none;
+}
+
+label{
+    display: block;
+    background-image: url("./images/icon-share.svg");
+    width: 30px; height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.dark{background-color: var(--veryDarkGrayishBlue);}
+
+label:hover {
+    background-color: var(--grayishBlue);
+}
+
+svg:hover {
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+    .container{
+        flex-direction: column;
+        padding: 1.2em;
+    }
+    .card {
+        max-width: 330px;
+        flex-basis: 50%;
+        grid-template-rows: 200px 1fr;
+    }
+    
+    div.container {
+        height: auto;
+        gap: 1.5em;
+    }
+
+    .picture {
+        background-image: url("./images/drawers.jpg");
+        background-position: center center;
+        background-size: cover;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    .heading {
+        color: var(--veryDarkGrayishBlue);
+        font-weight: 700;
+    }
+
+    .info {
+        color: var(--desaturatedDarkBlue);
+    }
+
+    .name{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+
+    .profile{
+        color: var(--desaturatedDarkBlue);
+    }
+
+    .profile p{
+        width: 150px;
+    }
+
+    .profile::first-line {
+        color: var(--veryDarkGrayishBlue);
+        font-weight: 700;
+    }
+
+    img[alt=face] {
+        width: 30px;
+        height: 30px;
+        float: left;
+        margin: 0 1em 0 -1em;
+        border-radius: 50%;
+    }
+
+    span {
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: var(--desaturatedDarkBlue);
+    }
+
+    .links{
+        display: flex;
+        gap: 1.2em;
+        padding-top: .4em;
+    }
+
+    .links.hide svg{
+        display: none;
+    }
+
+    .links.hide span{
+        display: none;
+    }
+}
+
