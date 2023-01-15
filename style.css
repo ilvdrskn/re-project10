@@ -26,16 +26,83 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2em;
+}
+
+div.container{
+    padding: 2em 2.5em;
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+}
+
+.heading {
+    font-size: 1.5em;
+    color: var(--veryDarkGrayishBlue);
+    font-weight: bolder;
+}
+
+.info{
+    color: var(--desaturatedDarkBlue);
 }
 
 .card {
     display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    grid-template-rows: 70% 30%;
     flex-basis: 60%;
     background-color: var(--lightGrayishBlue);
     border-radius: 20px;
+    grid-row-gap: .1em;
 }
 
-.hide{display:none;}
+.picture {
+    background-image: url("./images/drawers.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-row: span 2;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+.name {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    position: relative;
+}
+
+.profile p{
+    width: 200px;
+}
+
+img[alt=face] {
+    width: 40px;
+    height: 40px;
+    float: left;
+    border-radius: 50%;
+    margin: 0 1em 0 0;
+}
+
+.profile{
+    color: var(--desaturatedDarkBlue);
+    justify-self: flex-start;
+}
+
+.profile::first-line {
+    color: var(--veryDarkGrayishBlue);
+    font-weight: bold;
+}
+
+.main-action {
+    position: absolute;
+    z-index: 2;
+    right: 10%;
+}
+
 
 input[type=button] {
     display: none;
@@ -50,26 +117,62 @@ label{
     border-radius: 50%;
 }
 
-.dark{background-color: var(--veryDarkGrayishBlue);}
-
 label:hover {
     background-color: var(--grayishBlue);
+    cursor: pointer;
 }
 
 svg:hover {
     cursor: pointer;
 }
 
+.links {
+    position: absolute;
+    bottom: 120%;
+    left: 60%;
+    width: 200px;
+    background-color: var(--veryDarkGrayishBlue);
+    display: flex;
+    gap: 1.2em;
+    padding-top: .4em;
+    padding: 0.4em 0.2em;
+    border-radius: 5px;
+}
+
+.links::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 10px solid transparent;
+    border-top: 10px solid var(--veryDarkGrayishBlue);
+    top: 90%; left: 50%;
+}
+
+span {
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--desaturatedDarkBlue);
+}
+
+.hide{
+    display: none;
+}
+
+
 
 @media screen and (max-width: 600px) {
+    .hide {display: none;}
+
+    .dark{background-color: var(--veryDarkGrayishBlue);}
+
     .container{
         flex-direction: column;
         padding: 1.2em;
     }
     .card {
         max-width: 330px;
-        flex-basis: 50%;
         grid-template-rows: 200px 1fr;
+        grid-template-columns: 1fr;
     }
     
     div.container {
@@ -79,60 +182,34 @@ svg:hover {
 
     .picture {
         background-image: url("./images/drawers.jpg");
-        background-position: center center;
-        background-size: cover;
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
+        border-bottom-left-radius: 0px;
     }
 
-    .heading {
-        color: var(--veryDarkGrayishBlue);
-        font-weight: 700;
-    }
-
-    .info {
-        color: var(--desaturatedDarkBlue);
-    }
-
-    .name{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        border-bottom-left-radius: inherit;
-        border-bottom-right-radius: inherit;
-    }
-
-    .profile{
-        color: var(--desaturatedDarkBlue);
-    }
 
     .profile p{
         width: 150px;
     }
 
-    .profile::first-line {
-        color: var(--veryDarkGrayishBlue);
-        font-weight: 700;
+    .links{
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        width: 100%; height: 100%;
+        justify-content: center;
+        border-radius: 0;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+
+    .links::after{
+        display: none;
     }
 
     img[alt=face] {
         width: 30px;
         height: 30px;
-        float: left;
         margin: 0 1em 0 -1em;
-        border-radius: 50%;
-    }
-
-    span {
-        letter-spacing: .2em;
-        text-transform: uppercase;
-        color: var(--desaturatedDarkBlue);
-    }
-
-    .links{
-        display: flex;
-        gap: 1.2em;
-        padding-top: .4em;
     }
 
     .links.hide svg{
